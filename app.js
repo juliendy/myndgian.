@@ -1,6 +1,6 @@
 // Toggle Light/Dark
-const sunIcon = document.getElementById("sunIcon");
-const moonIcon = document.getElementById("moonIcon");
+const sunIcon = document.getElementById("sunIcon")
+const moonIcon = document.getElementById("moonIcon")
 const toggleInner = document.querySelector(".toggle-inner")
 const root = document.querySelector(":root")
 
@@ -24,14 +24,18 @@ function toggleLightMode() {
 }
 
 // Modal
-const modalBackground = document.getElementById('modalBackground');
-const optionsBtn = document.querySelector('.settings');
+const modalBackground = document.getElementById('modalBackground')
+const sideMenu = document.getElementById("sideMenu")
+const optionsBtn = document.querySelector('.settings')
+const closeOptionsBtn = document.querySelector(".close-side-menu")
 
-optionsBtn.addEventListener('click', toggleModal);
-modalBackground.addEventListener('click', toggleModal);
+optionsBtn.addEventListener('click', toggleModal)
+modalBackground.addEventListener('click', toggleModal)
+closeOptionsBtn.addEventListener("click", toggleModal)
 
 function toggleModal() {
-    modalBackground.classList.toggle('modal-shown');
+    modalBackground.classList.toggle('modal-shown')
+        sideMenu.classList.toggle("modal-shown")
 }
 
 // To-Do List (Added dynamic header)
@@ -45,9 +49,9 @@ const listNameText = document.querySelectorAll('listNameText')
 const userNameText = document.querySelectorAll('userNameText')
 
 listNameText.forEach((list) => {
-    list.textContent = listName;
-});
+    list.textContent = listName
+})
 
 userNameText.forEach((name) => {
-    name.textContent = userName;
-});
+    name.textContent = userName
+})
