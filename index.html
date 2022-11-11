@@ -16,6 +16,7 @@
     <body id="body">
         <!-- Modal -->
         <div id="modalBackground" class="modal-background"></div>
+        <!-- Settings Modal -->
         <aside id="sideMenu" class="side-menu">
             <i class="close-side-menu fas fa-times"></i>
             <div class="side-menu-inner">
@@ -23,6 +24,8 @@
                 <div class="side-menu-content"></div>
             </div>
         </aside>
+        <!-- 'Add' Modal (Small Screens) -->
+        <div class="modal-container"></div>
         <!-- Navigation -->
         <nav class="nav">
             <div>
@@ -58,18 +61,29 @@
                         >!
                     </p>
                     <p>
+                        There
+                        <span id="listedTodosInlineText">are</span> currently
+                        <span id="listedTodosText" class="emphasis"
+                            >0 items</span
+                        >
+                        pending on your list.
+                    </p>
+                    <p>
                         You have
-                        <span class="emphasis">0 prioritised</span> items.
+                        <span id="prioritisedText" class="emphasis"
+                            >0 prioritised items</span
+                        >.
                     </p>
                 </div>
                 <!-- Button -->
                 <div class="add-todo-container">
                     <input
-                        type="text"
+                        id="addItemInput"
                         class="input"
-                        placeholder="Add a to-do"
+                        type="text"
+                        placeholder="Add a to-do..."
                     />
-                    <button class="btn btn-primary">
+                    <button id="addItemBtn" class="btn btn-primary">
                         Add <i class="fas fa-plus"></i>
                     </button>
                 </div>
@@ -90,7 +104,12 @@
                     <!-- Filter Items -->
                     <div class="filter-items filter-items-main">
                         <div class="filter-box filter-box__icon">
-                            <i class="fas fa-exchange-alt"></i>
+                            <div
+                                id="toggleListOrderBtn"
+                                class="filter-box filter-box__icon"
+                            >
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
                         </div>
                         <div class="filter-box filter-box__small filter-active">
                             All
@@ -124,14 +143,14 @@
                     <!-- To-Do Item Container -->
                     <div class="to-do-item-container">
                         <!-- To-Do Item -->
-                        <div class="to-do-item">
+                        <!-- <div class="to-do-item">
                             <div class="to-do-item__checkbox">
                                 <i class="far fa-circle fa-2x"></i>
                             </div>
                             <div class="to-do-item__content">
                                 <div class="content-text">
                                     <p class="content-text__to-do">
-                                        Finish portfolio
+                                        Finish Tasca
                                     </p>
                                     <p class="content-text__date">
                                         Added Thursday 11 November, 2022
@@ -156,7 +175,7 @@
                             <div class="to-do-item__content">
                                 <div class="content-text">
                                     <p class="content-text__to-do">
-                                        Finish portfolio
+                                        Troll Irina and Robert <3
                                     </p>
                                     <p class="content-text__date">
                                         Added Thursday 11 November, 2022
@@ -172,7 +191,7 @@
                             <div class="to-do-item__remove">
                                 <i class="fas fa-trash-alt"></i>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </main>
