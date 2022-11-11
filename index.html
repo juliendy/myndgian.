@@ -50,7 +50,9 @@
         <!-- To-Do List -->
         <div class="container">
             <main class="list">
+                <!-- List Name -->
                 <h1 id="listNameText" class="list-header">To-Do List</h1>
+                <!-- List Summary -->
                 <div class="summary">
                     <p>
                         Hello,
@@ -63,10 +65,31 @@
                         <span class="emphasis">0 prioritised</span> items.
                     </p>
                 </div>
+                <!-- Button -->
+                <div class="add-todo-container">
+                    <input
+                        type="text"
+                        class="input"
+                        placeholder="Add a to-do"
+                    />
+                    <button class="btn btn-primary">
+                        Add <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <!-- Add Button (SM screens) -->
+                <div class="add-todo-container-small">
+                    <div class="btn-background"></div>
+                    <button class="btn-circle btn-primary">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <!-- Empty List -->
                 <div class="empty-list-display">
                     <i class="far fa-smile"></i>
                     <p>Looks like your to-do list is currently empty!</p>
                 </div>
+                <!-- List Item Container -->
+                <div class="item-container"></div>
             </main>
         </div>
 

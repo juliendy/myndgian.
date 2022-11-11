@@ -1,57 +1,60 @@
 // Toggle Light/Dark
-const sunIcon = document.getElementById("sunIcon")
-const moonIcon = document.getElementById("moonIcon")
-const toggleInner = document.querySelector(".toggle-inner")
-const root = document.querySelector(":root")
+const sunIcon = document.getElementById("sunIcon");
+const moonIcon = document.getElementById("moonIcon");
+const toggleInner = document.querySelector(".toggle-inner");
+const root = document.querySelector(":root");
 
-sunIcon.addEventListener("click", toggleDarkMode)
-moonIcon.addEventListener("click", toggleLightMode)
+sunIcon.addEventListener("click", toggleDarkMode);
+moonIcon.addEventListener("click", toggleLightMode);
 
 function toggleDarkMode() {
-    toggleInner.style.transform = "translateY(-50%)"
-    root.style.setProperty("--color-white", "#333333")
-    root.style.setProperty("--color-black", "#ffffff")
-    root.style.setProperty("--color-dark", "#f1f1f1")
-    root.style.setProperty("--color-light", "#444444")
+    toggleInner.style.transform = "translateY(-50%)";
+    root.style.setProperty("--color-white", "#333333");
+    root.style.setProperty("--color-black", "#ffffff");
+    root.style.setProperty("--color-dark", "#f1f1f1");
+    root.style.setProperty("--color-light", "#444444");
 }
 
 function toggleLightMode() {
     toggleInner.style.transform = "translateY(0)";
-    root.style.setProperty("--color-white", "#ffffff")
-    root.style.setProperty("--color-black", "#333333")
-    root.style.setProperty("--color-dark", "#444444")
-    root.style.setProperty("--color-light", "#f1f1f1")
+    root.style.setProperty("--color-white", "#ffffff");
+    root.style.setProperty("--color-black", "#333333");
+    root.style.setProperty("--color-dark", "#444444");
+    root.style.setProperty("--color-light", "#f1f1f1");
 }
 
 // Modal
-const modalBackground = document.getElementById('modalBackground')
-const sideMenu = document.getElementById("sideMenu")
-const optionsBtn = document.querySelector('.settings')
-const closeOptionsBtn = document.querySelector(".close-side-menu")
+const body = document.getElementById("body");
+const modalBackground = document.getElementById("modalBackground");
+const sideMenu = document.getElementById("sideMenu");
+const optionsBtn = document.querySelector(".settings");
+const closeOptionsBtn = document.querySelector(".close-side-menu");
 
-optionsBtn.addEventListener('click', toggleModal)
-modalBackground.addEventListener('click', toggleModal)
-closeOptionsBtn.addEventListener("click", toggleModal)
+optionsBtn.addEventListener("click", toggleModal);
+modalBackground.addEventListener("click", toggleModal);
+closeOptionsBtn.addEventListener("click", toggleModal);
 
 function toggleModal() {
-    modalBackground.classList.toggle('modal-shown')
-        sideMenu.classList.toggle("modal-shown")
+    window.scrollTo(0, 0);
+    modalBackground.classList.toggle("modal-shown");
+    sideMenu.classList.toggle("modal-shown");
+    body.classList.toggle('body-fixed')
 }
 
 // To-Do List (Added dynamic header)
-let listName = 'To-Do List'
-let userName = 'Julien'
-let listedTodos = 0
-let completedTodos = 0
-let prioritisedTodos = 0
+let listName = "To-Do List";
+let userName = "Julien";
+let listedTodos = 0;
+let completedTodos = 0;
+let prioritisedTodos = 0;
 
-const listNameText = document.querySelectorAll('listNameText')
-const userNameText = document.querySelectorAll('userNameText')
+const listNameText = document.querySelectorAll("listNameText");
+const userNameText = document.querySelectorAll("userNameText");
 
 listNameText.forEach((list) => {
-    list.textContent = listName
-})
+    list.textContent = listName;
+});
 
 userNameText.forEach((name) => {
-    name.textContent = userName
-})
+    name.textContent = userName;
+});
