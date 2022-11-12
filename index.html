@@ -11,6 +11,13 @@
             referrerpolicy="no-referrer"
         />
         <title>myndigan.</title>
+        <style>
+            @media only screen and (max-width: 40rem) {
+            }
+
+            @media only screen and (max-width: 30rem) {
+            }
+        </style>
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body id="body">
@@ -103,40 +110,52 @@
                 <div class="item-container">
                     <!-- Filter Items -->
                     <div class="filter-items filter-items-main">
-                        <div class="filter-box filter-box__icon">
-                            <div
-                                id="toggleListOrderBtn"
-                                class="filter-box filter-box__icon"
-                            >
-                                <i class="fas fa-exchange-alt"></i>
-                            </div>
+                        <div
+                            id="toggleListOrderBtn"
+                            class="filter-box filter-box__icon"
+                        >
+                            <i class="fas fa-exchange-alt"></i>
                         </div>
-                        <div class="filter-box filter-box__small filter-active">
+                        <div
+                            id="showAllBtn"
+                            class="filter-box filter-box__small filter-active"
+                        >
                             All
                         </div>
-                        <div class="filter-box filter-box__text">Complete</div>
-                        <div class="filter-box filter-box__text">
+                        <div
+                            id="showCompleteBtn"
+                            class="filter-box filter-box__text"
+                        >
+                            Complete
+                        </div>
+                        <div
+                            id="showIncompleteBtn"
+                            class="filter-box filter-box__text"
+                        >
                             Incomplete
                         </div>
-                        <div class="filter-box filter-box__icon">
+                        <div
+                            id="showPrioritisedBtn"
+                            class="filter-box filter-box__icon"
+                        >
                             <i class="fas fa-star"></i>
                         </div>
                     </div>
                     <!-- Filter Items (Small Screen) -->
                     <div class="filter-items filter-items-small">
-                        <div class="filter-box filter-box__icon">
+                        <div id="toggleListOrderBtn" class="filter-box filter-box__icon">
                             <i class="fas fa-exchange-alt"></i>
                         </div>
-                        <div class="filter-box filter-box__small filter-active">
+                        <div id="showAllBtn" class="filter-box filter-box__small filter-active">
                             All
                         </div>
-                        <div class="filter-box filter-box__icon">
+                        <div id="showCompleteBtn" class="filter-box filter-box__icon">
                             <i class="fas fa-check-double"></i>
                         </div>
-                        <div class="filter-box filter-box__icon">
+                        <div id="showIncompleteBtn" class="filter-box filter-box__icon">
                             <i class="fas fa-hourglass"></i>
                         </div>
-                        <div class="filter-box filter-box__icon">
+                        <div id="showPrioritisedBtn" class="filter-box filter-box__icon">
                             <i class="fas fa-star"></i>
                         </div>
                     </div>

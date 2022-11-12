@@ -81,12 +81,119 @@ function toggleModal() {
 
 // Toggle 'Add' Modal for Small Screens
 
-// Toggle To-Do Container Order Button
-const toggleListOrderBtn = document.getElementById("toggleListOrderBtn");
+// --> To-Do List Filters
+// 1. Toggle To-Do Container Order Button:
 const toDoItemContainer = document.querySelector(".to-do-item-container");
+const toggleListOrderBtn = document.querySelectorAll("#toggleListOrderBtn");
+const showAllBtn = document.querySelectorAll("#showAllBtn");
+const showCompleteBtn = document.querySelectorAll("#showCompleteBtn");
+const showIncompleteBtn = document.querySelectorAll("#showIncompleteBtn");
+const showPrioritisedBtn = document.querySelectorAll("#showPrioritisedBtn");
 
-toggleListOrderBtn.addEventListener("click", () => {
-    toDoItemContainer.classList.toggle("reverse-order");
+toggleListOrderBtn.forEach((orderBtn) => {
+    orderBtn.addEventListener("click", () => {
+        toDoItemContainer.classList.toggle("reverse-order");
+    });
+});
+
+// 2. Toggle 'All':
+showAllBtn.forEach((showAll) => {
+    showAll.addEventListener("click", () => {
+        showAll.classList.add("filter-active");
+
+        showCompleteBtn.forEach((showComplete) => {
+            showComplete.classList.remove("filter-active");
+        });
+        showIncompleteBtn.forEach((showIncomplete) => {
+            showIncomplete.classList.remove("filter-active");
+        });
+        showPrioritisedBtn.forEach((showPrioritised) => {
+            showPrioritised.classList.remove("filter-active");
+        });
+
+        const listItem = document.querySelectorAll(".to-do-item");
+        listItem.forEach((item) => {
+            item.style.display = "flex";
+        });
+    });
+});
+
+// 3. Toggle 'Complete':
+showCompleteBtn.forEach((showComplete) => {
+    showComplete.addEventListener("click", () => {
+        showComplete.classList.add("filter-active");
+
+        showAllBtn.forEach((showAll) => {
+            showAll.classList.remove("filter-active");
+        });
+        showIncompleteBtn.forEach((showIncomplete) => {
+            showIncomplete.classList.remove("filter-active");
+        });
+        showPrioritisedBtn.forEach((showPrioritised) => {
+            showPrioritised.classList.remove("filter-active");
+        });
+
+        const listItem = document.querySelectorAll(".to-do-item");
+        listItem.forEach((item) => {
+            if (item.classList.contains("item-complete")) {
+                item.style.display = "flex";
+            } else {
+                item.style.display = "none";
+            }
+        });
+    });
+});
+
+// 4. Toggle Incomplete:
+showIncompleteBtn.forEach((showIncomplete) => {
+    showIncomplete.addEventListener('click', () => {
+        showIncomplete.classList.add('filter-active');
+
+        showAllBtn.forEach((showAll) => {
+            showAll.classList.remove('filter-active');
+        });
+        showCompleteBtn.forEach((showComplete) => {
+            showComplete.classList.remove('filter-active');
+        });
+        showPrioritisedBtn.forEach((showPrioritised) => {
+            showPrioritised.classList.remove('filter-active');
+        });
+
+        const listItem = document.querySelectorAll('.to-do-item');
+        listItem.forEach((item) => {
+            if (item.classList.contains('item-complete')) {
+                item.style.display = 'none';
+            } else {
+                item.style.display = 'flex';
+            }
+        });
+    });
+});
+
+// 5. Toggle 'Prioritised':
+showPrioritisedBtn.forEach((showPrioritised) => {
+    showPrioritised.addEventListener('click', () => {
+        showPrioritised.classList.add('filter-active');
+
+        showAllBtn.forEach((showAll) => {
+            showAll.classList.remove('filter-active');
+        });
+        showCompleteBtn.forEach((showComplete) => {
+            showComplete.classList.remove('filter-active');
+        });
+        showIncompleteBtn.forEach((showIncomplete) => {
+            showIncomplete.classList.remove('filter-active');
+        });
+
+        const listItem = document.querySelectorAll('.to-do-item');
+        listItem.forEach((item) => {
+            if (item.classList.contains('priority-item')) {
+                item.style.display = 'flex';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
 });
 
 // To-Do List (Added dynamic header)
@@ -135,29 +242,29 @@ function updateSummary() {
 }
 
 function checkListedToDos() {
-    const itemContainer = document.querySelector('.item-container');
-    const emptyItemContainer = document.querySelector('.empty-list-display');
+    const itemContainer = document.querySelector(".item-container");
+    const emptyItemContainer = document.querySelector(".empty-list-display");
 
     if (listedTodos !== 0) {
-        itemContainer.style.display = 'flex';
-        emptyItemContainer.style.display = 'none';
+        itemContainer.style.display = "flex";
+        emptyItemContainer.style.display = "none";
     } else {
-        itemContainer.style.display = 'none';
-        emptyItemContainer.style.display = 'flex';
+        itemContainer.style.display = "none";
+        emptyItemContainer.style.display = "flex";
     }
 }
 
 // Add a To-Do
-const addItemBtn = document.querySelectorAll('#addItemBtn');
-const addItemInput = document.querySelectorAll('#addItemInput');
+const addItemBtn = document.querySelectorAll("#addItemBtn");
+const addItemInput = document.querySelectorAll("#addItemInput");
 let inputFieldActive = false;
 
 addItemBtn.forEach((addBtn) => {
-    addBtn.addEventListener('click', addItemToList);
+    addBtn.addEventListener("click", addItemToList);
 });
 
 //--Add Item to List on 'Enter'--
-document.addEventListener('keydown', function () {
+document.addEventListener("keydown", function () {
     addItemInput.forEach((input) => {
         if (input === document.activeElement) {
             inputFieldActive = true;
@@ -167,8 +274,8 @@ document.addEventListener('keydown', function () {
     });
 });
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
         addItemToList();
     }
 });
@@ -176,12 +283,12 @@ document.addEventListener('keydown', (e) => {
 
 function addItemToList() {
     addItemInput.forEach((inputValue) => {
-        if (inputValue.value !== '') {
+        if (inputValue.value !== "") {
             listedTodos++;
             updateSummary();
             addNewItemToList();
             checkListedToDos();
-            inputValue.value = '';
+            inputValue.value = "";
         }
     });
 }
@@ -192,70 +299,148 @@ function addNewItemToList() {
 
 // **Create the To-Do Item
 function createNewItemElement() {
-    const addItemInput = document.getElementById('addItemInput');
+    const addItemInput = document.getElementById("addItemInput");
     const dateText = printDate();
-    const toDoContainer = document.querySelector('.to-do-item-container');
+    const toDoContainer = document.querySelector(".to-do-item-container");
 
-    const newItemContainer = document.createElement('div');
-    newItemContainer.classList.add('to-do-item');
+    const newItemContainer = document.createElement("div");
+    newItemContainer.classList.add("to-do-item");
     toDoContainer.appendChild(newItemContainer);
 
-    const newItemContentMain = document.createElement('div');
-    newItemContentMain.classList.add('item-content-main');
+    const newItemContentMain = document.createElement("div");
+    newItemContentMain.classList.add("item-content-main");
     newItemContainer.appendChild(newItemContentMain);
 
-    const newToDoItemCheckbox = document.createElement('div');
-    newToDoItemCheckbox.classList.add('to-do-item__checkbox');
+    const newToDoItemCheckbox = document.createElement("div");
+    newToDoItemCheckbox.classList.add("to-do-item__checkbox");
     newItemContentMain.appendChild(newToDoItemCheckbox);
 
-    const newCircleIcon = document.createElement('i');
-    newCircleIcon.classList.add('far', 'fa-circle', 'fa-2x');
+    const newCircleIcon = document.createElement("i");
+    newCircleIcon.classList.add("far", "fa-circle", "fa-2x");
     newToDoItemCheckbox.appendChild(newCircleIcon);
 
-    const newToDoItemContent = document.createElement('div');
-    newToDoItemContent.classList.add('to-do-item__content');
+    const newToDoItemContent = document.createElement("div");
+    newToDoItemContent.classList.add("to-do-item__content");
     newItemContentMain.appendChild(newToDoItemContent);
 
-    const newContentText = document.createElement('div');
-    newContentText.classList.add('content-text');
+    const newContentText = document.createElement("div");
+    newContentText.classList.add("content-text");
     newToDoItemContent.appendChild(newContentText);
 
-    const newContentTextToDo = document.createElement('p');
-    newContentTextToDo.classList.add('content-text__to-do');
+    const newContentTextToDo = document.createElement("p");
+    newContentTextToDo.classList.add("content-text__to-do");
     newContentTextToDo.textContent = addItemInput.value;
     newContentText.appendChild(newContentTextToDo);
 
-    const newContentTextDate = document.createElement('p');
-    newContentTextDate.classList.add('content-text__date');
+    const newContentTextDate = document.createElement("p");
+    newContentTextDate.classList.add("content-text__date");
     newContentTextDate.textContent = dateText;
     newContentText.appendChild(newContentTextDate);
 
-    const newItemContentIcons = document.createElement('div');
-    newItemContentIcons.classList.add('item-content-icons');
+    const newItemContentIcons = document.createElement("div");
+    newItemContentIcons.classList.add("item-content-icons");
     newItemContainer.appendChild(newItemContentIcons);
 
-    const newToDoItemPriority = document.createElement('div');
-    newToDoItemPriority.classList.add('to-do-item__priority');
+    const newToDoItemPriority = document.createElement("div");
+    newToDoItemPriority.classList.add("to-do-item__priority");
     newItemContentIcons.appendChild(newToDoItemPriority);
 
-    const newStarIcon = document.createElement('i');
-    newStarIcon.classList.add('far', 'fa-star');
+    const newStarIcon = document.createElement("i");
+    newStarIcon.classList.add("far", "fa-star", "star-icon");
     newToDoItemPriority.appendChild(newStarIcon);
 
-    const newToDoItemEdit = document.createElement('div');
-    newToDoItemEdit.classList.add('to-do-item__edit');
+    const newToDoItemEdit = document.createElement("div");
+    newToDoItemEdit.classList.add("to-do-item__edit");
     newItemContentIcons.appendChild(newToDoItemEdit);
 
-    const newEditIcon = document.createElement('i');
-    newEditIcon.classList.add('fas', 'fa-edit');
+    const newEditIcon = document.createElement("i");
+    newEditIcon.classList.add("fas", "fa-edit");
     newToDoItemEdit.appendChild(newEditIcon);
 
-    const newToDoItemRemove = document.createElement('div');
-    newToDoItemRemove.classList.add('to-do-item__remove');
+    const newToDoItemRemove = document.createElement("div");
+    newToDoItemRemove.classList.add("to-do-item__remove");
     newItemContentIcons.appendChild(newToDoItemRemove);
 
-    const newTrashIcon = document.createElement('i');
-    newTrashIcon.classList.add('fas', 'fa-trash-alt');
+    const newTrashIcon = document.createElement("i");
+    newTrashIcon.classList.add("fas", "fa-trash-alt");
     newToDoItemRemove.appendChild(newTrashIcon);
+}
 
+function addNewItemToList() {
+    createNewItemElement();
+
+    // ---------- ✅ Complete Checkbox ✅ --------------
+    const checkboxCircleIcon = document.querySelectorAll(".fa-circle");
+
+    checkboxCircleIcon.forEach((checkbox) => {
+        checkbox.addEventListener("click", checkClickedIcon);
+    });
+
+    // ---------- ⭐️ Prioritise Button ⭐️ --------------
+    const starIcon = document.querySelectorAll(".star-icon");
+
+    starIcon.forEach((star) => {
+        star.addEventListener("click", checkClickedIcon);
+    });
+}
+
+function checkClickedIcon(e) {
+    const icon = e.target;
+
+    const iconParent = icon.parentElement;
+    const iconGrandparent = iconParent.parentElement;
+    const iconItem = iconGrandparent.parentElement;
+
+    // If unchecked, change to checked:
+    if (icon.classList.contains("fa-circle")) {
+        if (iconItem.classList.contains("priority-item")) {
+            icon.classList.remove("far", "fa-circle");
+            icon.classList.add("fas", "fa-check-circle");
+
+            iconItem.classList.remove("priority-item");
+            iconItem.classList.add("item-complete");
+
+            console.log(iconItem);
+
+            listedTodos--;
+            prioritisedTodos--;
+            updateSummary();
+        } else {
+            icon.classList.remove("far", "fa-circle");
+            icon.classList.add("fas", "fa-check-circle");
+
+            iconItem.classList.add("item-complete");
+
+            console.log(iconItem);
+
+            listedTodos--;
+            updateSummary();
+        }
+    }
+
+    // If blank star, change to filled (prioritised) star:
+    else if (icon.classList.contains("far", "fa-star")) {
+        if (iconItem.classList.contains("item-complete")) {
+            // Nothing happens
+        } else {
+            icon.classList.remove("far");
+            icon.classList.add("fas");
+            iconItem.classList.add("priority-item");
+            prioritisedTodos++;
+            updateSummary();
+        }
+    }
+
+    // If filled (prioritised) star, change to blank star:
+    else if (icon.classList.contains("fas", "fa-star")) {
+        if (iconItem.classList.contains("item-complete")) {
+            // Nothing happens
+        } else {
+            icon.classList.remove("fas");
+            icon.classList.add("far");
+            iconItem.classList.remove("priority-item");
+            prioritisedTodos--;
+            updateSummary();
+        }
+    }
 }

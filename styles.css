@@ -7,6 +7,8 @@
     --color-dark: #444444;
     --color-primary: rgb(68, 218, 128);
     --color-gray: #acacac;
+    --color-primary-light: rgb(187, 255, 214);
+    --color-primary-dark: rgb(27, 79, 47);
 }
 
 /* Universal */
@@ -282,7 +284,7 @@ body {
 .filter-items {
     width: 80%;
     height: 4rem;
-    margin: 0 auto 4rem auto;
+    margin: 0 auto 2rem auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -354,6 +356,7 @@ body {
 .to-do-item {
     background-color: transparent;
     width: 100%;
+    margin: .5rem 0;
     padding: 2rem;
     transition: all 0.3s;
     display: flex;
@@ -414,6 +417,7 @@ body {
 .content-text__to-do {
     width: 100%;
     font-size: 1.8rem;
+    line-height: 1.5;
     padding-bottom: 1rem;
     border-bottom: 0.1rem solid var(--color-primary);
 }
@@ -421,6 +425,25 @@ body {
 .content-text__date {
     font-size: 1.2rem;
     padding-top: 1rem;
+}
+
+.item-complete {
+    background-color: var(--color-primary-light);
+    color: black;
+}
+
+.item-complete i:hover {
+    cursor: default;
+    filter: brightness(100%);
+}
+
+.item-complete i.fa-trash-alt {
+    cursor: pointer;
+    filter: brightness(90%);
+}
+
+.priority-item {
+    background-color: yellow;
 }
 
 /* Modal */
@@ -509,7 +532,7 @@ body {
     }
 }
 
-@media screen and (max-width: 30rem) {
+@media only screen and (max-width: 30rem) {
     .nav {
         height: 8rem;
     }
