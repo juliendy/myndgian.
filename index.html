@@ -21,6 +21,31 @@
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body id="body">
+        <!--Add/Edit/Delete Modal-->
+        <div class="modal"></div>
+        <div class="modal-inner">
+            <div class="modal-display">
+                <div class="btn-close-box">
+                    <i class="fas fa-times btn-close"></i>
+                </div>
+                <p class="modal-header">
+                    <span class="header-span">Delete</span> Your To-Do Item?
+                </p>
+                <p class="modal-text-1">
+                    You will be unable to recover the data once it is deleted.
+                </p>
+                <p class="modal-text-2">Are you sure?</p>
+                <input
+                    class="input modal-input"
+                    type="text"
+                    placeholder="Something...."
+                />
+                <div class="modal-buttons">
+                    <button class="btn btn-cancel btn-neutral">Cancel</button>
+                    <button class="btn btn-main btn-negative">Delete</button>
+                </div>
+            </div>
+        </div>
         <!-- Modal -->
         <div id="modalBackground" class="modal-background"></div>
         <!-- Settings Modal -->
@@ -143,74 +168,40 @@
                     </div>
                     <!-- Filter Items (Small Screen) -->
                     <div class="filter-items filter-items-small">
-                        <div id="toggleListOrderBtn" class="filter-box filter-box__icon">
+                        <div
+                            id="toggleListOrderBtn"
+                            class="filter-box filter-box__icon"
+                        >
                             <i class="fas fa-exchange-alt"></i>
                         </div>
-                        <div id="showAllBtn" class="filter-box filter-box__small filter-active">
+                        <div
+                            id="showAllBtn"
+                            class="filter-box filter-box__small filter-active"
+                        >
                             All
                         </div>
-                        <div id="showCompleteBtn" class="filter-box filter-box__icon">
+                        <div
+                            id="showCompleteBtn"
+                            class="filter-box filter-box__icon"
+                        >
                             <i class="fas fa-check-double"></i>
                         </div>
-                        <div id="showIncompleteBtn" class="filter-box filter-box__icon">
+                        <div
+                            id="showIncompleteBtn"
+                            class="filter-box filter-box__icon"
+                        >
                             <i class="fas fa-hourglass"></i>
                         </div>
-                        <div id="showPrioritisedBtn" class="filter-box filter-box__icon">
+                        <div
+                            id="showPrioritisedBtn"
+                            class="filter-box filter-box__icon"
+                        >
                             <i class="fas fa-star"></i>
                         </div>
                     </div>
                     <!-- To-Do Item Container -->
                     <div class="to-do-item-container">
-                        <!-- To-Do Item -->
-                        <!-- <div class="to-do-item">
-                            <div class="to-do-item__checkbox">
-                                <i class="far fa-circle fa-2x"></i>
-                            </div>
-                            <div class="to-do-item__content">
-                                <div class="content-text">
-                                    <p class="content-text__to-do">
-                                        Finish Tasca
-                                    </p>
-                                    <p class="content-text__date">
-                                        Added Thursday 11 November, 2022
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="to-do-item__priority">
-                                <i class="far fa-star"></i>
-                            </div>
-                            <div class="to-do-item__edit">
-                                <i class="fas fa-edit"></i>
-                            </div>
-                            <div class="to-do-item__remove">
-                                <i class="fas fa-trash-alt"></i>
-                            </div>
-                        </div>
-
-                        <div class="to-do-item">
-                            <div class="to-do-item__checkbox">
-                                <i class="far fa-circle fa-2x"></i>
-                            </div>
-                            <div class="to-do-item__content">
-                                <div class="content-text">
-                                    <p class="content-text__to-do">
-                                        Troll Irina and Robert <3
-                                    </p>
-                                    <p class="content-text__date">
-                                        Added Thursday 11 November, 2022
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="to-do-item__priority">
-                                <i class="far fa-star"></i>
-                            </div>
-                            <div class="to-do-item__edit">
-                                <i class="fas fa-edit"></i>
-                            </div>
-                            <div class="to-do-item__remove">
-                                <i class="fas fa-trash-alt"></i>
-                            </div>
-                        </div> -->
+                        +
                     </div>
                 </div>
             </main>
